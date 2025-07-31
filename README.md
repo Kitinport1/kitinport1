@@ -9,6 +9,18 @@
 
 ###
 
+<h2 align="left">🚀 Sobre mim</h2>
+
+###
+
+<p align="left">Oi! Eu sou a Lauane — atualmente Analista de Produtos, com background em atendimento, dados e tecnologia, e em transição ativa para o universo do desenvolvimento. 💡💻<br><br>Minha jornada me trouxe de áreas como suporte técnico e ouvidoria até a análise de dados e produtos, passando por BI, modelagem de banco de dados e estratégias voltadas à experiência do cliente. Hoje, aplico esse olhar analítico e centrado no usuário para criar soluções mais inteligentes e eficientes, com código.<br><br>Sou apaixonada por entender problemas reais, traduzir isso em requisitos e colaborar para construir soluções escaláveis — e é isso que estou buscando aprofundar com meus estudos em desenvolvimento, especialmente backend, automações e APIs.</p>
+
+###
+
+<img align="right" height="150" src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWhrNDN3bm41cmJoZWtxbGlwNW9veWthdmV5NDZyYWRia3h6MDBqbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/viOp9A7y0LkUo/giphy.gif"  />
+
+###
+
 <div align="left">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="30" alt="javascript logo"  />
   <img width="12" />
@@ -23,11 +35,11 @@
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="30" alt="python logo"  />
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" height="30" alt="csharp logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" height="30" alt="postgresql logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" height="30" alt="fastapi logo"  />
 </div>
-
-###
-
-<img align="right" height="150" src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWhrNDN3bm41cmJoZWtxbGlwNW9veWthdmV5NDZyYWRia3h6MDBqbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/viOp9A7y0LkUo/giphy.gif"  />
 
 ###
 
@@ -46,11 +58,5 @@
     <img src="https://img.shields.io/static/v1?message=Stackoverflow&logo=stackoverflow&label=&color=FE7A16&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="stackoverflow logo"  />
   </a>
 </div>
-
-###
-
-<br clear="both">
-
-<img src="https://raw.githubusercontent.com/kitinport1/kitinport1/output/snake.svg" alt="Snake animation" />
 
 ###
