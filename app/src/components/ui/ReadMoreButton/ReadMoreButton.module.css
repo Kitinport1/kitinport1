@@ -1,0 +1,39 @@
+.readMoreButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px; 
+    border-radius: 50px;
+    background-color: #F8F4E6; 
+    color: #000000; 
+    font-family: var(--font-dm-sans), sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none; 
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    gap: 10px; 
+    white-space: nowrap; 
+}
+
+.readMoreButton:hover {
+    background-color: #e0d9cd; 
+    transform: translateY(-2px);
+}
+
+.plusIcon {
+    font-size: 1.5rem;
+    line-height: 1; 
+    font-weight: 700; 
+}
+
+@media (max-width: 768px) {
+    .readMoreButton {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+    .plusIcon {
+        font-size: 1.3rem;
+    }
+}

@@ -1,0 +1,20 @@
+.navMenu {
+  display: flex;
+  gap: 2rem; 
+}
+
+.navLink {
+  font-family: var(--font-dm-sans), sans-serif;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, color 0.3s ease;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.navLink:hover {
+  opacity: 1;
+  color: #DDDDFF;
+}

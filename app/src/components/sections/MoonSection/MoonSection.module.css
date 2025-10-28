@@ -1,0 +1,29 @@
+.moonSection {
+    min-height: 100vh; 
+    
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    background-color: transparent; 
+    position: relative; 
+    z-index: 10;
+}
+
+.moonImageWrapper {
+    position: absolute;
+    width: min(80vw, 400px); 
+    height: min(80vw, 400px);
+    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    
+    z-index: 1; 
+    
+    opacity: 0.15; 
+    transition: opacity 0.5s ease;
+}
+
+.specialMoon .moonImageWrapper {
+    opacity: 0.3; 
+}

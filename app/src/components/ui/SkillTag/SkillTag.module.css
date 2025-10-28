@@ -1,0 +1,66 @@
+@keyframes rainbowFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.skillTag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 3px; 
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+    background-color: transparent; 
+}
+
+.skillTag::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50px;
+    z-index: 1;
+    background: linear-gradient(90deg, 
+        #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #9400D3
+    );
+    background-size: 200% 200%; 
+    opacity: 0; 
+    transition: opacity 0.5s ease-out;
+}
+
+.skillTag:hover::before {
+    opacity: 1; 
+    animation: rainbowFlow 5s ease-in-out infinite; /* Inicia a animação de fluxo */
+}
+
+.innerContent,
+.plusIcon {
+    position: relative;
+    z-index: 2; 
+    padding: 12px 25px; 
+    border-radius: 50px;
+    background-color: #F8F4E6; 
+    color: #000000;
+    font-family: var(--font-dm-sans), sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.5s ease;
+}
+
+.plusIcon {
+    padding: 12px;
+    margin-left: -15px; 
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.skillTag:hover .innerContent,
+.skillTag:hover .plusIcon {
+    color: #000000; 
+}
+
+.skillTag:hover .innerContent {
+    background-color: transparent;
+}

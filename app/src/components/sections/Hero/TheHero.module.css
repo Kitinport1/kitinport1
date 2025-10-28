@@ -1,0 +1,124 @@
+.heroSection {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    height: 100vh;
+    z-index: -1; 
+    background-color: #000000;
+    overflow: hidden; 
+}
+
+.moonAura {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -2; 
+    width: 1000px;
+    height: 1000px;
+    background: radial-gradient(
+        circle at center, 
+        rgba(100, 150, 255, 0.15), 
+        rgba(0, 0, 0, 0) 70% 
+    );
+    filter: blur(150px); 
+    overflow: hidden;
+}
+
+.moon3DContainer {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(600px, 90vw); 
+    height: min(600px, 90vw);
+    z-index: 0; 
+}
+
+.heroContent {
+    position: relative;
+    z-index: 1; 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 15% 1fr 10%; 
+    width: min(600px, 90vw); 
+    height: min(600px, 90vw);
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 50px; 
+    box-sizing: border-box; 
+}
+
+.headerWrapper {
+    grid-column: 1 / 3; 
+    grid-row: 1 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.rightTextWrapper {
+    margin-top: 30vh;
+    grid-column: 2 / 3; 
+    grid-row: 2 / 3;
+    align-self: start;
+    justify-self: start; 
+    
+    transform: translateX(-220%); 
+    transition: transform 0.3s ease-out;
+    white-space: nowrap; 
+    position: absolute; 
+}
+
+.leftTextWrapper {
+    margin-top: 25vh;
+    grid-row: 2 / 3;
+    align-self: start;
+    grid-column: 2 / 3; 
+    justify-self: end; 
+    
+    transition: all 0.5s ease-out;
+    position: absolute; 
+}
+
+.leftAlign {
+    margin-top: 30vh;
+    transform: translateX(65%); 
+    opacity: 1;
+}
+
+.hiddenAlign {
+    transform: translateX(200%); 
+    opacity: 0;
+}
+
+.callToAction {
+    position: absolute; 
+    top: 150px; 
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.heroTitle {
+    font-family: var(--font-dm-sans), sans-serif; 
+    font-size: 6rem;
+    line-height: 0.9;
+    margin: 0;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+.bold { font-weight: 700; }
+.light { font-weight: 300; }
+.inline { display: inline-block; margin-right: 0.5rem; }
+
+.textPWrapper{
+   justify-content: center;
+   position: absolute; 
+}
