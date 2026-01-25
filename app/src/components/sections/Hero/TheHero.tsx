@@ -1,88 +1,109 @@
-'use client'; 
+'use client';
 
-import React, { FC } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './TheHero.module.css';
-import Moon3DCanvas from '../ui/Moon3DCanvas';
-import BaseNavMenu from '../base/BaseNavMenu';
+import MoonHeroCanvas from '../../ui/MoonHeroCanvas';
 
-interface HeroProps {
-  activeSectionId: string | null;
-}
+const PROFESSIONS = [
+  'Developer Full Stack', 'Product Analyst', 'Developer Mobile', 'DevOps', 'Data Analyst','Fraud Analyst', 'Chargeback Analyst', 'Designer', 'Woman'
+];
 
-const FIXED_NAV_LINKS: BaseNavMenuProps['links'] = ['Home', 'About', 'Portfolio', 'Contact']; 
+const PROFESSIONS_MOBILE = [
+  'Full Stack Developer', 'Product Analyst', 'Mobile Dev', 'DevOps', 'Data Analyst', 'Fraud Analyst', 'Chargeback', 'Designer', 'Woman'
+];
 
-const heroContentMap: Record<string, { title: string; navLinks: BaseNavMenuProps['links'] }> = {
-  
-  
-  'null': { title: 'Talking to the', navLinks: FIXED_NAV_LINKS }, 
-  
-  'developer': { title: 'I am Developer Full Stack', navLinks: ['Developer', 'Projects', 'Contact'] },
-  'product-analyst': { title: 'I am Product Analyst', navLinks: ['Product', 'Metrics', 'Roadmap'] },
-  'fraud-analyst': { title: 'I am Fraud Analyst', navLinks: ['Fraud', 'Reports', 'Contact'] },
-  'data-analyst': { title: 'I am Data Analyst', navLinks: ['Data', 'Reports', 'Analysis'] },
-  'chargeback-analyst': { title: 'I am Chargeback Analyst', navLinks: ['Chargeback', 'Prevention', 'Policies'] },
-  'designer': { title: 'I am Designer', navLinks: ['Design', 'UX/UI', 'Portfolio'] },
-  'woman': { title: 'I am Woman', navLinks: ['Woman', 'About', 'Contact'] },
-};
+const TheHero: React.FC = () => {
+  const [currentProfession, setCurrentProfession] = useState(0);
+  const [moonRotation, setMoonRotation] = useState(0);
+  const [isFirstView, setIsFirstView] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+  const [moonScale, setMoonScale] = useState(0.033);
 
-const TheHero: FC<HeroProps> = ({ activeSectionId }) => {
-  
-  const lookupKey = activeSectionId || 'null';
-  const content = heroContentMap[lookupKey];
-  const activeContent = content || heroContentMap['null'];
-
-  const titleWords = activeContent.title.split(' ');
-  
-
-  const getTitleParts = (words: string[]) => {
-      if (words[0].toLowerCase() === 'talking') {
-          return {
-              part1: words.slice(0, 3).join(' '),
-              part2: null
-          };
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      setIsMobile(width <= 768);
+      
+      // Ajusta escala da moon de acordo com o dispositivo
+      if (width <= 480) {
+        setMoonScale(0.02);
+      } else if (width <= 768) {
+        setMoonScale(0.025);
+      } else if (width <= 1024) {
+        setMoonScale(0.027);
+      } else {
+        setMoonScale(0.033);
       }
-      if (words[0].toLowerCase() === 'i' && words[1].toLowerCase() === 'am') {
-          return {
-              part1: words.slice(0, 2).join(' '),
-              part2: words.slice(2).join(' ')
-          };
-      }
-      return { part1: activeContent.title, part2: null };
-  };
+    };
 
-  const { part1, part2 } = getTitleParts(titleWords);
-  const isHeroMode = activeSectionId === null || activeSectionId === 'null';
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    const professionInterval = setInterval(() => {
+      setCurrentProfession((prev) => (prev + 1) % PROFESSIONS.length);
+    }, 3000); 
+
+    return () => clearInterval(professionInterval);
+  }, []);
+
+  useEffect(() => {
+    let frameId: number;
     
+    const animate = () => {
+      setMoonRotation((prev) => prev + 0.002); 
+      frameId = requestAnimationFrame(animate);
+    };
+
+    frameId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frameId);
+  }, []);
+
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsFirstView(false), 5000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <section className={styles.heroSection}>
-      
-      <div className={styles.moonAura} /> 
+    <section id="hero" className={styles.hero}>
+      <div className={styles.heroSection}>
+        
+        <div className={styles.moonAura} />
 
-      <div className={styles.moon3DContainer}>
-        <Moon3DCanvas rotationSpeed={0.003} />
+        <div className={styles.moon3DContainer}>
+          <MoonHeroCanvas 
+            modelPath="/models/moon_hero.glb" 
+            progress={moonRotation} 
+            scale={moonScale} 
+          />
+        </div>
+
+        <div className={styles.heroContent}>
+          <div className={`${styles.leftTextWrapper} ${isFirstView ? styles.hiddenAlign : styles.leftAlign}`}>
+            <h1 className={`${styles.heroTitle} ${isMobile ? styles.heroTitleMobile : ''}`}>
+              {isMobile ? PROFESSIONS_MOBILE[currentProfession] : PROFESSIONS[currentProfession]}
+            </h1>
+          </div>
+          <div className={styles.rightTextWrapper}>
+            <h1 className={`${styles.heroTitle} ${styles.bold} ${isMobile ? styles.heroTitleMobile : ''}`}>
+              {isFirstView ? (isMobile ? 'Talking to' : 'Talking to the') : 'I am'}
+            </h1> 
+          </div>
+        </div>
+
+        {/* Scroll Indicator opcional, já que agora é automático */}
+        <div className={styles.scrollIndicator}>
+          <div className={styles.scrollBar}>
+            <div 
+              className={styles.scrollProgressFill} 
+              style={{ height: `${(currentProfession / (PROFESSIONS.length - 1)) * 100}%` }} 
+            />
+          </div>
+        </div>
       </div>
-
-      <div className={styles.heroContent}>
-          
-          <div className={`${styles.leftTextWrapper} ${isHeroMode ? styles.hiddenAlign : styles.leftAlign}`}>
-              
-              {part2 && 
-                <h1 className={`${styles.heroTitle} ${styles.light}`}>{part2}</h1>
-              }
-              
-          </div>
-
-          <div className={`${styles.rightTextWrapper}`}>
-              <h1 className={`${styles.heroTitle} ${styles.bold}`}>{part1}</h1> 
-          </div>
-
-          <div className={styles.headerWrapper}>
-              <BaseNavMenu links={FIXED_NAV_LINKS} /> 
-          </div>
-
-          
-      </div>
-      
     </section>
   );
 };

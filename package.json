@@ -11,9 +11,12 @@
   "dependencies": {
     "@react-three/drei": "^10.7.6",
     "@react-three/fiber": "^9.4.0",
+    "dotenv": "^17.2.3",
+    "framer-motion": "^12.23.26",
     "next": "15.5.5",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-responsive-carousel": "^3.2.23",
     "three": "^0.180.0"
   },
   "devDependencies": {

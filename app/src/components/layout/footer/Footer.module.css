@@ -1,0 +1,292 @@
+.footer {
+  width: 100%;
+  background-color: #000000;
+  padding: 20px 0 60px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1.2fr 2fr; /* Bio à esquerda, links à direita */
+  gap: 60px;
+}
+
+.brandColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+}
+
+.logo span {
+  /* Gradiente tecnológico para o ponto final */
+  background: linear-gradient(180deg, #00d2ff, #9200ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.role {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.bio {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.6;
+  max-width: 320px;
+  margin-bottom: 40px;
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: auto;
+}
+
+/* Colunas de Links */
+.linksWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.column h4 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+}
+
+.column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.column ul li {
+  margin-bottom: 18px;
+}
+
+.column ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.column ul li a:hover {
+  color: #00d2ff;
+  transform: translateX(5px);
+}
+
+.socialList svg {
+  color: rgba(255, 255, 255, 0.4);
+  transition: color 0.3s ease;
+}
+
+.socialList li a:hover svg {
+  color: #9200ff;
+}
+
+/* Ajustes Responsivos */
+@media (max-width: 968px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  
+  .brandColumn {
+    text-align: center;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.8rem;
+  }
+
+  .role {
+    font-size: 0.8rem;
+  }
+
+  .bio {
+    font-size: 0.9rem;
+    max-width: 100%;
+  }
+
+  .linksWrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 0 50px 0;
+  }
+
+  .container {
+    width: 95%;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .role {
+    font-size: 0.75rem;
+    margin-bottom: 15px;
+  }
+
+  .bio {
+    font-size: 0.85rem;
+    margin-bottom: 30px;
+  }
+
+  .copyright {
+    font-size: 0.75rem;
+  }
+
+  .column h4 {
+    font-size: 0.7rem;
+    margin-bottom: 20px;
+  }
+
+  .column ul li {
+    margin-bottom: 14px;
+  }
+
+  .column ul li a {
+    font-size: 0.9rem;
+  }
+
+  .linksWrapper {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 30px 0 40px 0;
+  }
+
+  .container {
+    width: 90%;
+    gap: 30px;
+  }
+
+  .brandColumn {
+    text-align: center;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+  }
+
+  .role {
+    font-size: 0.7rem;
+    margin-bottom: 12px;
+  }
+
+  .bio {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    max-width: 100%;
+  }
+
+  .copyright {
+    font-size: 0.7rem;
+  }
+
+  .linksWrapper {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .column h4 {
+    font-size: 0.65rem;
+    margin-bottom: 15px;
+  }
+
+  .column ul li {
+    margin-bottom: 12px;
+  }
+
+  .column ul li a {
+    font-size: 0.85rem;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .column ul li a svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 25px 0 35px 0;
+  }
+
+  .container {
+    width: 90%;
+    gap: 25px;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+  }
+
+  .role {
+    font-size: 0.65rem;
+    letter-spacing: 0.5px;
+  }
+
+  .bio {
+    font-size: 0.75rem;
+    margin-bottom: 20px;
+  }
+
+  .linksWrapper {
+    gap: 20px;
+  }
+
+  .column h4 {
+    font-size: 0.6rem;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+
+  .column ul li {
+    margin-bottom: 10px;
+  }
+
+  .column ul li a {
+    font-size: 0.8rem;
+  }
+}

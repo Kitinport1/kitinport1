@@ -1,92 +1,100 @@
 'use client'; 
 
-import React, { useState } from 'react';
-import { IMoonSectionProps } from './src/interfaces/Moon';
-import TheHero from './src/components/sections/TheHero';
+import React, { useState, useCallback } from 'react';
+import Navbar from './src/components/layout/navbar/Navbar';
 import ScrollObserver from './src/components/utils/ScrollObserver';
+import { ScrollReveal } from './src/components/utils/ScrollReveal';
+import TheHero from './src/components/sections/Hero/TheHero';
 import AboutSection from './src/components/sections/About/AboutSection';
 import TechnologySection from './src/components/sections/Technology/TechnologySection';
+import ContactSection from './src/components/sections/Contact/ContactSection';
+import CreativeAreaSection from './src/components/sections/Projetos/CreativeArea';
+import Footer from './src/components/layout/footer/Footer';
 
-
-const moonSectionsData: IMoonSectionProps[] = [
-    { 
-        id: 'about', 
-        role: 'I am lua', 
-        subRole: undefined, 
-        imageSrc: '/models/colorful-full.png', 
-        isSpecial: true, 
-        description: 'Breve historia sobre aa minha trajetória e quem eu sou meus gostao e tudo mais' 
-    },
-
-    {
-        id: 'technology',
-        role: 'Tecnology',
-        subRole: 'Hard skills',
-        imageSrc: '/images/moon/full-moon.png',
-        skills: [
-            'TypeScript', 'React', 'Next.js', 'Node.js', 
-            'Python', 'AWS', 'Docker', 'Kubernetes',
-            'PostgreSQL', 'MongoDB', 'Git', 'Clean Code',
-        ]
-    },
-    
-    { id: 'developer', role: 'I am Developer', subRole: 'Full Stack', imageSrc: '/images/moon/crescent-right.png' },
-    { id: 'product-analyst', role: 'I am Product', subRole: 'Analyst', imageSrc: '/images/moon/crescent-left.png' },
-    { id: 'fraud-analyst', role: 'I am Fraud', subRole: 'Analyst', imageSrc: '/images/moon/half-right-2.png' },
-    { id: 'data-analyst', role: 'I am Data', subRole: 'Analyst', imageSrc: '/images/moon/gibosa-crescente.png' },
-    { id: 'chargeback-analyst', role: 'I am Chargeback', subRole: 'Analyst', imageSrc: '/images/moon/crescent-left-2.png' },
-    { id: 'designer', role: 'I am Designer', subRole: undefined, imageSrc: '/images/moon/crescent-right-2.png' },
-    { id: 'woman', role: 'I am Woman', subRole: undefined, imageSrc: '/images/moon/new-moon-circle.png' },
-];
-
+const navSectionIds = ['hero', 'about', 'technology', 'creative-area', 'contact'];
 
 export default function HomePage() {
-  const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [activeSection, setActiveSection] = useState<string | null>('hero'); 
 
-  const scrollSectionStyle: React.CSSProperties = {
-    minHeight: '100vh',
-    position: 'relative',
-    zIndex: 10,
-    backgroundColor: 'transparent', 
-  };
-    
+  const handleIntersection = useCallback((id: string) => {
+    setActiveSection(id);
+  }, []);
+
   return (
-    <main>
-      <TheHero activeSectionId={activeSection} />
-      
-    
-      <div style={{ height: '100vh' }} /> 
-      
-      {moonSectionsData.map((section) => (
-        <ScrollObserver 
-          key={section.id} 
-          sectionId={section.id} 
-          onIntersecting={(id) => setActiveSection(id)} 
-        >
-          
-          {section.id === 'about' ? (
-              <AboutSection
-                  id={section.id}
-                  role={section.role}
-                  imageSrc={section.imageSrc}
-              />
-          ) : section.id === 'technology' ? (
-              <TechnologySection
-                  id={section.id}
-                  role={section.role}
-                  subRole={section.subRole!} 
-                  imageSrc={section.imageSrc}
-                  skills={section.skills!} 
-              />
-          ) : (
-              <div 
-                  id={section.id} 
-                  style={scrollSectionStyle}
-              >
-              </div>
-          )}
+    <main style={{ backgroundColor: '#000', color: '#fff', minHeight: '100vh', overflowX: 'hidden' }}>
+      <Navbar activeSectionId={activeSection} navItems={navSectionIds} /> 
+
+      {/* 1. HERO */}
+      <ScrollObserver sectionId="hero" onIntersecting={handleIntersection}>
+        <div id="hero"><TheHero /></div>
+      </ScrollObserver>
+
+      {/* 2. ABOUT (Sincronizado com AboutMore internamente) */}
+      <ScrollReveal>
+        <ScrollObserver sectionId="about" onIntersecting={handleIntersection}>
+          {/* Este ID é o que o Navbar procura */}
+          <div id="about">
+            <AboutSection 
+              id="about-content"
+              role="I'm" 
+              span="Lua."
+              description="I’ve never managed to fit into a single box.
+                          And, honestly, I’m glad I didn’t.
+                          My name is Lauane Ramos de Lima. Curiosity, sensitivity, and a genuine desire to understand how things truly work have always guided my choices — both personal and professional.
+                          Here, you’ll find my journey, my projects, and how I turn curiosity into product, process, and real impact."
+              imageSrc="/models/perfil0.png"
+            />
+          </div>
         </ScrollObserver>
-      ))}
+      </ScrollReveal>
+
+      {/* 3. TECHNOLOGY (Erro subRole Corrigido) */}
+      <ScrollReveal>
+        <ScrollObserver sectionId="technology" onIntersecting={handleIntersection}>
+          <div id="technology">
+            <TechnologySection 
+              id="technology"
+              role="TECHNOLOGY"
+              subRole="HARD SKILLS" 
+              imageSrc="/images/moon/full-moon.png"
+              skills={[
+                'TypeScript', 'React', 'Next.js', 'Node.js', 'HTML5', 'CSS3',
+                'Python', 'AWS', 'Docker', 'Kubernetes','JavaScript','REST APIs','Data visualisation',
+                'SQL','Automation scripts','PostgreSQL', 'MongoDB', 'Git & GitHub','Jira','Notion','VS code','Agile( Scrum, Kanban)','Discovery & Delivery','Requirements documentation','Process mapping','LLM','Prompt','Machine Learning','Neo4jei','Clean Code',
+              ]}
+            />
+          </div>
+        </ScrollObserver>
+      </ScrollReveal>
+
+      {/* 4. CREATIVE AREA */}
+      <ScrollReveal>
+        <ScrollObserver sectionId="creative-area" onIntersecting={handleIntersection}>
+          <div id="creative-area">
+            <CreativeAreaSection 
+               id="creative-area" 
+               role="Creative Area" 
+               subRole="Explorations" 
+            />
+          </div>
+        </ScrollObserver>
+      </ScrollReveal>
+
+      {/* 5. CONTACT (Erro subRole Corrigido) */}
+      <ScrollReveal>
+        <ScrollObserver sectionId="contact" onIntersecting={handleIntersection}>
+          <div id="contact">
+            <ContactSection 
+              id="contact"
+              role="Let's build something"
+              subRole="Bright together!" 
+              imageSrc="/images/moon/gibosa-crescente.png"
+            />
+          </div>
+        </ScrollObserver>
+      </ScrollReveal>
+
+      <Footer />
     </main>
   );
 }

@@ -4,5 +4,7 @@ export interface IMoonSectionProps {
   subRole?: string; 
   imageSrc: string;
   isSpecial?: boolean;
+
   description?: string;
+  skills?: string[];      
 }

@@ -15,3 +15,52 @@ body {
   padding: 0;
   overflow-x: hidden; 
 }
+
+html {
+  scroll-behavior: smooth;
+}
+div[id] {
+  scroll-margin-top: 90px; 
+}
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; 
+}
+
+section {
+  width: 100%;
+  padding: 40px 20px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  scroll-margin-top: 80px;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 20px 15px;
+  }
+  
+  h1 { font-size: 2rem; }
+  p { font-size: 1rem; }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#Hero, #About, #Technology, #Projects, #Contact {
+  scroll-margin-top: 100px; 
+}
+
+
+.framer-motion-container {
+  width: 100%;
+  overflow-x: hidden;
+}

@@ -1,81 +1,175 @@
 .technologySection {
-    min-height: 100vh;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
+    min-height: 10vh;
     background-color: #000000;
-    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
     position: relative;
-    padding: 80px 0;
+    overflow: hidden;
 }
 
 .contentWrapper {
-    display: flex;
-    flex-direction: column; 
     max-width: 1400px;
     width: 90%;
-    gap: 80px; 
-    align-items: flex-start; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
 }
 
 .headerContainer {
     display: flex;
-    align-items: center; 
-    max-width: 1000px; 
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    margin-left: 100px;
+    gap: 40px;
+    width: 100%;
 }
+
 
 .imageContainer {
-    position: relative;
-    align-items: center; 
+    width: 250px; 
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-shrink: 0;
-}
-
-.moonImage {
-    /* object-fit: contain; já está no JSX/inline */
 }
 
 .titleWrapper {
     display: flex;
     flex-direction: column;
-    margin-top: 50px; 
+    text-align: left; 
 }
 
 .title {
     font-family: var(--font-dm-sans), sans-serif;
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 1;
+    font-size: clamp(3rem, 4vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: #FFFFFF;
+    margin: 0;
+    line-height: 0.9;
+    text-transform: uppercase;
 }
 
 .subTitle {
     font-family: var(--font-dm-sans), sans-serif;
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 2vw, 1.4rem);
     font-weight: 400;
-    opacity: 0.7;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.5);
     margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.skillsGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 100px;
+    margin-left: 100px;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+    .headerContainer {
+        flex-direction: column; 
+        text-align: center;
+    }
+
+    .titleWrapper {
+        text-align: center;
+    }
+
+    .imageContainer {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .headerContainer {
+        margin-left: 0;
+        gap: 20px;
+    }
+
+    .skillsGrid {
+        margin-left: 0;
+        gap: 15px;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .technologySection {
+        padding: 20px 0;
+    }
+
+    .contentWrapper {
+        width: 95%;
+    }
+
+    .headerContainer {
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .titleWrapper {
+        text-align: center;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .subTitle {
+        font-size: 0.9rem;
+    }
+
+    .skillsGrid {
+        justify-content: center;
+        margin-left: 0;
+        gap: 10px;
+        max-width: 100%;
+    }
+
+    .imageContainer {
+        width: 120px;
+        height: 120px;
+    }
 }
 
 .skillsGrid {
     flex-grow: 1;
     display: flex;
     flex-wrap: wrap;
-    gap: 15px; 
+    gap: 5px;
     align-items: center;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     width: 100%;
-    padding-left: 0; 
+    padding-left: 0;
 }
 
 @media (max-width: 1024px) {
     .headerContainer {
-        flex-direction: column; 
+        flex-direction: column;
         align-items: center;
         text-align: center;
     }
 
     .titleWrapper {
-        margin-top: 20px; 
+        margin-top: 20px;
     }
 
     .contentWrapper {

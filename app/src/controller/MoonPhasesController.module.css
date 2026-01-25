@@ -1,0 +1,56 @@
+.phasesContainer {
+  position: absolute; /* Mudei de fixed para absolute */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 4;
+  background: transparent !important;
+}
+
+.moonMask {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(600px, 90vw);
+  height: min(600px, 90vw);
+  background: radial-gradient(
+    circle at 30% 50%,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.8) 30%,
+    rgba(0, 0, 0, 0.6) 50%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.5s ease;
+  mix-blend-mode: multiply;
+}
+
+.progressIndicator {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  text-align: center;
+  color: white;
+  opacity: 0.7;
+  background: transparent !important;
+}
+
+.progressBar {
+  height: 2px;
+  background: linear-gradient(90deg, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #9400D3);
+  margin-bottom: 10px;
+  transition: width 0.1s ease;
+}
+
+.phaseName {
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: transparent !important;
+}

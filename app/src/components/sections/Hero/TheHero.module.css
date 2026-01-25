@@ -1,34 +1,14 @@
 .heroSection {
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100vw; 
+    position: relative;
+    width: 100%;
     height: 100vh;
-    z-index: -1; 
     background-color: #000000;
-    overflow: hidden; 
-}
-
-.moonAura {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -2; 
-    width: 1000px;
-    height: 1000px;
-    background: radial-gradient(
-        circle at center, 
-        rgba(100, 150, 255, 0.15), 
-        rgba(0, 0, 0, 0) 70% 
-    );
-    filter: blur(150px); 
     overflow: hidden;
 }
 
 .moon3DContainer {
     position: absolute;
-    top: 60%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: min(600px, 90vw); 
@@ -36,89 +16,324 @@
     z-index: 0; 
 }
 
+
 .heroContent {
     position: relative;
-    z-index: 1; 
+    z-index: 3;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 15% 1fr 10%; 
-    width: min(600px, 90vw); 
+    grid-template-rows: 1fr;
+    width: min(600px, 90vw);
     height: min(600px, 90vw);
-    position: absolute; 
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 50px; 
-    box-sizing: border-box; 
-}
-
-.headerWrapper {
-    grid-column: 1 / 3; 
-    grid-row: 1 / 2;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    padding: 50px;
+    box-sizing: border-box;
 }
 
 .rightTextWrapper {
     margin-top: 30vh;
-    grid-column: 2 / 3; 
-    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
     align-self: start;
-    justify-self: start; 
-    
-    transform: translateX(-220%); 
+    justify-self: start;
+    transform: translateX(-220%);
     transition: transform 0.3s ease-out;
-    white-space: nowrap; 
-    position: absolute; 
+    white-space: nowrap;
+    position: absolute;
 }
 
 .leftTextWrapper {
     margin-top: 25vh;
-    grid-row: 2 / 3;
+    grid-row: 1 / 2;
     align-self: start;
-    grid-column: 2 / 3; 
-    justify-self: end; 
-    
+    grid-column: 2 / 3;
+    justify-self: end;
     transition: all 0.5s ease-out;
-    position: absolute; 
+    position: absolute;
 }
 
 .leftAlign {
     margin-top: 30vh;
-    transform: translateX(65%); 
+    transform: translateX(65%);
     opacity: 1;
 }
 
 .hiddenAlign {
-    transform: translateX(200%); 
+    transform: translateX(200%);
     opacity: 0;
 }
 
-.callToAction {
-    position: absolute; 
-    top: 150px; 
-    left: 0;
-    width: 100%;
-    text-align: center;
-    color: #FFFFFF;
-    font-size: 0.9rem;
-    opacity: 0.8;
-}
-
 .heroTitle {
-    font-family: var(--font-dm-sans), sans-serif; 
+    font-family: var(--font-dm-sans), sans-serif;
     font-size: 6rem;
     line-height: 0.9;
     margin: 0;
     color: #FFFFFF;
     text-transform: uppercase;
 }
+
+.heroTitleMobile {
+    font-size: 3.5rem;
+}
 .bold { font-weight: 700; }
 .light { font-weight: 300; }
-.inline { display: inline-block; margin-right: 0.5rem; }
 
-.textPWrapper{
-   justify-content: center;
-   position: absolute; 
+.scrollIndicator {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    opacity: 0.7;
+    z-index: 4;
+}
+
+.scrollBar {
+    width: 200px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    margin-bottom: 10px;
+    border-radius: 1px;
+}
+
+.scrollProgress {
+    height: 100%;
+    background: linear-gradient(90deg, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #9400D3);
+    border-radius: 1px;
+    transition: width 0.1s ease;
+}
+
+.scrollIndicator span {
+    font-family: var(--font-dm-sans), sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 1440px) {
+    .heroTitle {
+        font-size: 5rem;
+    }
+
+    .moon3DContainer {
+        width: min(550px, 85vw);
+        height: min(550px, 85vw);
+    }
+
+    .heroContent {
+        width: min(550px, 85vw);
+        height: min(550px, 85vw);
+    }
+}
+
+@media (max-width: 1200px) {
+    .heroTitle {
+        font-size: 4.5rem;
+    }
+
+    .moon3DContainer {
+        width: min(500px, 80vw);
+        height: min(500px, 80vw);
+    }
+
+    .heroContent {
+        width: min(500px, 80vw);
+        height: min(500px, 80vw);
+    }
+}
+
+@media (max-width: 1024px) {
+    .heroTitle {
+        font-size: 4rem;
+    }
+
+    .moon3DContainer {
+        width: min(450px, 80vw);
+        height: min(450px, 80vw);
+    }
+
+    .heroContent {
+        width: min(450px, 80vw);
+        height: min(450px, 80vw);
+    }
+}
+
+@media (max-width: 912px) {
+    .heroTitle {
+        font-size: 3.5rem;
+    }
+
+    .moon3DContainer {
+        width: min(400px, 75vw);
+        height: min(400px, 75vw);
+    }
+
+    .heroContent {
+        width: min(400px, 75vw);
+        height: min(400px, 75vw);
+        padding: 30px;
+    }
+
+    .rightTextWrapper {
+        margin-top: 25vh;
+        transform: translateX(-200%);
+    }
+
+    .leftAlign {
+        margin-top: 25vh;
+        transform: translateX(60%);
+    }
+}
+
+@media (max-width: 768px) {
+    .heroSection {
+        height: auto;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 20px;
+    }
+
+    .moon3DContainer {
+        position: relative;
+        width: min(350px, 90vw);
+        height: min(350px, 90vw);
+        top: auto;
+        left: auto;
+        transform: none;
+        margin-bottom: 30px;
+        z-index: 2;
+    }
+
+    .heroContent {
+        position: relative;
+        width: 100%;
+        height: auto;
+        top: auto;
+        left: auto;
+        transform: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        padding: 0;
+        z-index: 3;
+    }
+
+    .rightTextWrapper {
+        position: relative;
+        margin-top: 0;
+        grid-column: unset;
+        grid-row: unset;
+        align-self: auto;
+        justify-self: auto;
+        transform: none;
+        transition: none;
+        white-space: normal;
+        text-align: center;
+        order: 1;
+    }
+
+    .leftTextWrapper {
+        position: relative;
+        margin-top: 0;
+        grid-row: unset;
+        grid-column: unset;
+        align-self: auto;
+        justify-self: auto;
+        transition: none;
+        text-align: center;
+        order: 2;
+    }
+
+    .leftAlign {
+        transform: none;
+        opacity: 1;
+        margin-top: 0;
+    }
+
+    .hiddenAlign {
+        transform: none;
+        opacity: 1;
+    }
+
+    .heroTitle {
+        font-size: 2.5rem;
+        line-height: 1;
+    }
+
+    .scrollIndicator {
+        bottom: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .heroSection {
+        padding: 20px 15px;
+    }
+
+    .moon3DContainer {
+        width: min(280px, 85vw);
+        height: min(280px, 85vw);
+        margin-bottom: 20px;
+    }
+
+    .heroTitle {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .heroSection {
+        min-height: 90vh;
+        padding: 20px 15px;
+    }
+
+    .moon3DContainer {
+        width: min(250px, 85vw);
+        height: min(250px, 85vw);
+        margin-bottom: 20px;
+    }
+
+    .heroContent {
+        width: 100%;
+        gap: 0;
+    }
+
+    .heroTitle {
+        font-size: 1.8rem;
+        line-height: 1;
+    }
+
+    .scrollIndicator {
+        display: none;
+    }
+}
+
+@media (max-width: 360px) {
+    .heroSection {
+        padding: 15px 10px;
+    }
+
+    .moon3DContainer {
+        width: 10%;
+        max-width: 220px;
+        height: 220px;
+        margin-bottom: 105px;
+    }
+
+    .heroTitle {
+        font-size: 1.5rem;
+    }
+
+    .scrollBar {
+        width: 150px;
+    }
 }

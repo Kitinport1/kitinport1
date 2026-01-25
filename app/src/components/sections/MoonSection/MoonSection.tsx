@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
 import Image from 'next/image';
 import styles from './MoonSection.module.css'; 
-import { IMoonSectionProps } from '../../interfaces/Moon';
+import { IMoonSectionProps } from '@/app/src/interfaces/Moon';
+
 
 const MoonSection: FC<IMoonSectionProps> = ({ 
   id, 

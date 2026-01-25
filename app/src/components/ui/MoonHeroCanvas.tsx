@@ -4,7 +4,7 @@ import { useRef, Suspense, useEffect, useState } from 'react';
 import { useGLTF, Center } from '@react-three/drei';
 import * as THREE from 'three';
 
-interface Moon3DCanvasProps {
+interface MoonHeroCanvasProps {
   modelPath: string;      
   progress?: number;
   rotationSpeed?: number;
@@ -15,8 +15,8 @@ const MoonModel = ({
   modelPath, 
   progress, 
   rotationSpeed, 
-  scale = 0.05
-}: Moon3DCanvasProps) => {
+  scale = 0.033
+}: MoonHeroCanvasProps) => {
   const { scene } = useGLTF(modelPath); 
   const meshRef = useRef<THREE.Group>(null);
 
@@ -41,31 +41,31 @@ const MoonModel = ({
   );
 };
 
-export default function Moon3DCanvas(props: Moon3DCanvasProps) {
-  const [containerSize, setContainerSize] = useState({ width: 250, height: 250 });
-  const [scale, setScale] = useState(props.scale || 0.05);
+export default function MoonHeroCanvas(props: MoonHeroCanvasProps) {
+  const [containerSize, setContainerSize] = useState({ width: 600, height: 600 });
+  const [scale, setScale] = useState(props.scale || 0.033);
 
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
       
-      // Ajusta tamanho do container e escala conforme o dispositivo
+      // Ajusta tamanho do container e escala conforme o dispositivo (sincronizado com TheHero)
       if (width <= 480) {
         // Mobile pequeno
-        setContainerSize({ width: 120, height: 120 });
-        setScale(0.01);
+        setContainerSize({ width: 320, height: 320 });
+        setScale(0.02);
       } else if (width <= 768) {
         // Tablet/Mobile grande
-        setContainerSize({ width: 150, height: 150 });
-        setScale(0.015);
+        setContainerSize({ width: 400, height: 400 });
+        setScale(0.025);
       } else if (width <= 1024) {
         // Tablet/Desktop pequeno
-        setContainerSize({ width: 180, height: 180 });
-        setScale(0.02);
+        setContainerSize({ width: 480, height: 480 });
+        setScale(0.027);
       } else {
-        // Desktop
-        setContainerSize({ width: 250, height: 250 });
-        setScale(props.scale || 0.05);
+        // Desktop - mantém tamanho original
+        setContainerSize({ width: 600, height: 600 });
+        setScale(props.scale || 0.033);
       }
     };
 

@@ -1,10 +1,9 @@
 'use client'; 
 
 import React, { FC } from 'react';
-import Image from 'next/image';
 import styles from './TechnologySection.module.css';
 import Moon3DCanvas from '../../ui/Moon3DCanvas';
-import SkillTag from '../../ui/SkillTag';
+import SkillTag from '../../ui/SkillTag/SkillTag';
 
 
 interface TechnologySectionProps {
@@ -15,20 +14,21 @@ interface TechnologySectionProps {
     skills: string[];
 }
 
-const TechnologySection: FC<TechnologySectionProps> = ({ id, role, subRole, imageSrc, skills }) => {
-  const rotationSpeed = 0.0005; 
+const TechnologySection: FC<TechnologySectionProps> = ({ role, subRole, skills }) => { 
     
   return (
-    <section id={id} className={styles.technologySection}>
+    <section id={'Technology'} className={styles.technologySection}>
       
       <div className={styles.contentWrapper}>
         
         <div className={styles.headerContainer}>
-            <div className={styles.imageContainer}>
-                
-                <Moon3DCanvas rotationSpeed={rotationSpeed} />
-
-            </div>
+        <div className={styles.imageContainer}>
+          <Moon3DCanvas 
+            modelPath="/models/moon_tech.glb" 
+            rotationSpeed={0.005} 
+            scale={0.02} 
+          />
+        </div>
             
             <div className={styles.titleWrapper}>
                 <h2 className={styles.title}>{role}</h2>

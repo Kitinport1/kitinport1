@@ -1,0 +1,428 @@
+.contactSection {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+    color: #FFFFFF;
+    position: relative;
+    padding: 20px 0;
+    overflow: hidden;
+}
+
+.contentWrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 1400px;
+    width: 90%;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+}
+
+@keyframes rainbowFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.headerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.title {
+    font-family: var(--font-dm-sans), sans-serif;
+    font-size: clamp(5.5rem, 7vw, 5rem);
+    font-weight: 700;
+    margin: 0;
+}
+
+.subTitle {
+    font-family: var(--font-dm-sans), sans-serif;
+    font-size: clamp(2.8rem, 5vw, 4rem);
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+
+.skillTagButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 20px; 
+    border-radius: 20px;
+    cursor: pointer;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.5s ease-out;
+    margin-top: 10px;
+}
+
+.skillTagButton::before {
+    content: ' ';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    z-index: 1;
+    background: linear-gradient(90deg, #FF00FF, #00FFFF); 
+    background-size: 200% 200%;
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+.skillTagButton:hover::before {
+    opacity: 1;
+    animation: rainbowFlow 3s ease-in-out infinite;
+}
+
+.innerContent {
+    position: relative;
+    z-index: 2;
+    padding: 16px 50px;
+    border-radius: 50px;
+    background-color: #000000; 
+    color: #FFFFFF;
+    font-family: var(--font-dm-sans), sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: background-color 0.5s ease;
+}
+
+.skillTagButton:hover .innerContent {
+    background-color: transparent; 
+}
+
+.skillTagButton:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+}
+
+.formWrapper {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    animation: slideUpFade 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.formTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.formTitle span {
+    color: #00FFFF;
+}
+
+.contactForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.inputField, .textField {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 18px 25px;
+    border-radius: 15px;
+    color: #FFFFFF;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.inputField:focus, .textField:focus {
+    border-color: #00FFFF;
+}
+
+.formActions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.backButton {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.backButton:hover {
+    color: #FFFFFF;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUpFade {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .innerContent { 
+        padding: 10px 30px; 
+        font-size: 0.8rem; 
+    }
+
+    .title {
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+    }
+
+    .subTitle {
+        font-size: clamp(1.2rem, 4vw, 1.8rem);
+        margin-top: 8px;
+    }
+
+    .formTitle {
+        font-size: 1.8rem;
+    }
+
+    .skillTagButton {
+        min-width: 160px;
+        padding: 2px;
+    }
+
+    .innerContent {
+        padding: 12px 35px;
+        font-size: 0.8rem;
+    }
+
+    .contactForm {
+        gap: 8px;
+    }
+
+    .inputField, .textField {
+        padding: 14px 18px;
+        font-size: 0.95rem;
+    }
+
+    .successText {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .contactSection {
+        min-height: auto;
+        padding: 80px 20px 40px;
+    }
+
+    .contentWrapper {
+        width: 95%;
+        min-height: auto;
+        gap: 15px;
+    }
+
+    .title {
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
+        line-height: 1.2;
+    }
+
+    .subTitle {
+        font-size: clamp(1rem, 3.5vw, 1.4rem);
+        margin-top: 6px;
+    }
+
+    .titleWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .skillTagButton {
+        min-width: 130px;
+        padding: 2px;
+    }
+
+    .innerContent {
+        padding: 10px 25px;
+        font-size: 0.75rem;
+        letter-spacing: 0.5px;
+    }
+
+    .formWrapper {
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    .formTitle {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .contactForm {
+        gap: 12px;
+    }
+
+    .inputField, .textField {
+        padding: 12px 15px;
+        font-size: 0.9rem;
+        border-radius: 10px;
+    }
+
+    .inputGroup {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .formActions {
+        gap: 12px;
+    }
+
+    .successWrapper {
+        gap: 15px;
+    }
+
+    .successText {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contactSection {
+        padding: 70px 15px 30px;
+    }
+
+    .title {
+        font-size: clamp(1.5rem, 5.5vw, 2rem);
+    }
+
+    .subTitle {
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+    }
+
+    .skillTagButton {
+        min-width: 110px;
+        padding: 2px;
+    }
+
+    .innerContent {
+        padding: 8px 20px;
+        font-size: 0.7rem;
+        letter-spacing: 0.5px;
+    }
+
+    .formTitle {
+        font-size: 1.3rem;
+    }
+
+    .inputField, .textField {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
+
+    .textField {
+        border-radius: 8px;
+    }
+
+    .successText {
+        font-size: 0.9rem;
+    }
+}
+
+.successWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    animation: slideUpFade 0.6s ease forwards;
+}
+
+.successText {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+}
+
+/* Botão Estilo Skill (Corrigido para o Hover aparecer) */
+.skillTagButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 3px; 
+    border-radius: 50px;
+    cursor: pointer;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.5s ease-out;
+    min-width: 280px; /* Garante que não fique pequeno */
+    overflow: hidden;
+    z-index: 1;
+}
+
+.skillTagButton::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50px;
+    z-index: -1; /* Importante: Atrás do conteúdo */
+    background: linear-gradient(90deg, #FF00FF, #00FFFF, #FF00FF); 
+    background-size: 200% 200%;
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+.skillTagButton:hover::before {
+    opacity: 1;
+    animation: rainbowFlow 3s ease-in-out infinite;
+}
+
+.innerContent {
+    position: relative;
+    z-index: 2;
+    padding: 18px 60px;
+    border-radius: 50px;
+    background-color: #000000;
+    color: #FFFFFF;
+    font-family: var(--font-dm-sans), sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.4s ease;
+}
+
+.skillTagButton:hover .innerContent {
+    background-color: transparent; /* Revela o gradiente do ::before */
+}
+
+/* Efeito de clique e escala */
+.skillTagButton:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+}
+
+.skillTagButton:active {
+    transform: scale(0.98);
+}

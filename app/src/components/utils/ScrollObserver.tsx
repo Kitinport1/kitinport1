@@ -1,42 +1,43 @@
 'use client';
 
-import React, { useRef, useEffect, FC, ReactNode } from 'react';
+import React, { useRef, useEffect, memo } from 'react';
 
 interface ScrollObserverProps {
   sectionId: string;
   onIntersecting: (id: string) => void;
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
-const ScrollObserver: FC<ScrollObserverProps> = ({ sectionId, onIntersecting, children }) => {
-  const sectionRef = useRef<HTMLDivElement>(null); 
+const ScrollObserver = memo(({ sectionId, onIntersecting, children }: ScrollObserverProps) => {
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const element = sectionRef.current;
+    if (!element) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) { 
+        if (entry.isIntersecting) {
           onIntersecting(sectionId);
         }
       },
       {
-        root: null, 
+        root: null,
         rootMargin: '0px',
-        threshold: 0.5, 
+        threshold: 0.3, // Reduzido para melhor performance
       }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    observer.observe(element);
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
+      observer.unobserve(element);
     };
   }, [sectionId, onIntersecting]);
 
   return <div ref={sectionRef}>{children}</div>;
-};
+});
+
+ScrollObserver.displayName = 'ScrollObserver';
 
 export default ScrollObserver;
