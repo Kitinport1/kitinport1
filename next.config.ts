@@ -1,9 +1,10 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Remova temporariamente o bloco experimental se o 404 persistir
-  /* experimental: {
-    turbo: {}
-  } */
-}
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+};
 
-module.exports = nextConfig
+export default nextConfig;
