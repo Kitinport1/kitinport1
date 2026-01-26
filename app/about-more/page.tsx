@@ -3,8 +3,8 @@
 import React, { useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from './AboutMore.module.css';
-import NavbarCustom from '../src/components/layout/navbar/NavbarCustom';
 import Footer from '../src/components/layout/footer/footer';
+import NavbarCustom from '../src/components/layout/navbar/NavbarCustom';
 
 
 const SOFT_SKILLS = [
@@ -86,8 +86,8 @@ What I value: Systems beyond the interface, collaboration over ego, and the art 
           </div>
         </section>
 
-        {/* Footer com o efeito "Beyond the Code" colorido */}
-        <Footer className={styles.pageFooter}>
+    
+        <section className={styles.pageFooter}>
            <h2 className={styles.footerTitle}>
              Beyond the <span className={styles.rainbowText}>Code</span>
            </h2>
@@ -99,7 +99,7 @@ What I value: Systems beyond the interface, collaboration over ego, and the art 
             I care about building things that make sense — for users, teams and businesses. I enjoy connecting dots, asking thoughtful questions and turning complex ideas into something clear and actionable.
             At the end of the day, what drives me is simple: doing meaningful work, with people who value curiosity, respect and human connection.
            </p>
-        </footer>
+        </section>
         <Footer/>
       </div>
     </main>
