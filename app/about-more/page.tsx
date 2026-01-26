@@ -87,8 +87,8 @@ What I value: Systems beyond the interface, collaboration over ego, and the art 
         </section>
 
     
-        <section className={styles.pageFooter}>
-           <h2 className={styles.footerTitle}>
+        <section className={styles.beyondSection}>
+           <h2 className={styles.sectionTitle}>
              Beyond the <span className={styles.rainbowText}>Code</span>
            </h2>
            <p>
