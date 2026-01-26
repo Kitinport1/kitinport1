@@ -1,7 +1,7 @@
 'use client';
 import React, { FC } from 'react';
 import styles from './Footer.module.css';
-import { Figma, Github, Instagram, Linkedin } from 'lucide-react'; 
+import { Github, Linkedin, Instagram } from 'react-bootstrap-icons'; 
 
 const Footer: FC = () => {
   const currentYear = new Date().getFullYear();
@@ -15,7 +15,7 @@ const Footer: FC = () => {
           <h2 className={styles.logo}>LAUANE LIMA<span>.</span></h2>
           <p className={styles.role}>FULL STACK DEVELOPER & PRODUCT OPS</p>
           <p className={styles.bio}>
-            Hi, I’m Lauane Lima — a developer passionate about creating 
+            Hi, I'm Lauane Lima — a developer passionate about creating 
             seamless digital experiences that connect and convert.
           </p>
           <p className={styles.copyright}>© {currentYear} Copyright</p>
