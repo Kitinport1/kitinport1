@@ -3,8 +3,8 @@
 import React, { useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from './AboutMore.module.css';
-import Footer from '../src/components/layout/footer/footer';
 import NavbarCustom from '../src/components/layout/navbar/NavbarCustom';
+import Footer from '../src/components/layout/footer/footer';
 
 
 const SOFT_SKILLS = [
@@ -87,7 +87,7 @@ What I value: Systems beyond the interface, collaboration over ego, and the art 
         </section>
 
         {/* Footer com o efeito "Beyond the Code" colorido */}
-        <footer className={styles.pageFooter}>
+        <Footer className={styles.pageFooter}>
            <h2 className={styles.footerTitle}>
              Beyond the <span className={styles.rainbowText}>Code</span>
            </h2>
