@@ -62,11 +62,6 @@ const Footer: FC = () => {
                   <Instagram size={18} /> Instagram
                 </a>
               </li>
-              <li>
-                <a href="https://www.figma.com/@kitinport1" target="_blank" rel="noopener">
-                  <Figma size={18} /> Figma
-                </a>
-              </li>
             </ul>
           </div>
 
