@@ -3,7 +3,7 @@
 import React, { useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from './AboutMore.module.css';
-import Footer from '../src/components/layout/footer/Footer';
+import Footer from '../src/components/layout/footer/footer';
 import NavbarCustom from '../src/components/layout/navbar/NavbarCustom';
 
 

@@ -9,7 +9,7 @@ import AboutSection from './src/components/sections/About/AboutSection';
 import TechnologySection from './src/components/sections/Technology/TechnologySection';
 import ContactSection from './src/components/sections/Contact/ContactSection';
 import CreativeAreaSection from './src/components/sections/Projetos/CreativeArea';
-import Footer from './src/components/layout/footer/Footer';
+import Footer from './src/components/layout/footer/footer';
 
 const navSectionIds = ['hero', 'about', 'technology', 'creative-area', 'contact'];
 
