@@ -1,6 +1,6 @@
 'use client';
 import React, { FC } from 'react';
-import styles from './Footer.module.css';
+import styles from './footer.module.css';
 import { Github, Linkedin, Instagram } from 'react-bootstrap-icons'; 
 
 const Footer: FC = () => {
