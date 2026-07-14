@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+### Hi, I'm Lauane (Lua) 👋 — Product Data Engineer
 
-## Getting Started
+I turn data into products. With a background in fintech, fraud prevention, and payments analytics, I use **React** and **React Native** as tools to build the dashboards, tracking systems, and internal tools that make data actually usable — not just reported.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 🧩 What I do
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 📊 **Data Analysis & BI** — SQL, Python, Power BI, Looker, BigQuery: turning raw transactional data into fraud/risk and product decisions.
+- - ⚛️ **Frontend for Data Products** — React & React Native to ship internal dashboards, tracking interfaces, and product-facing tools, not just static reports.
+  - - 🤖 **AI-Accelerated Development** — I use AI coding tools for prompt-driven prototyping and scaffolding, then refine and validate the logic and architecture myself.
+    - - 🔄 **Data-to-Product Bridge** — Experience mapping user telemetry and event tracking so product and data teams trust the same numbers.
+     
+      - ---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+      ### 🚀 Featured Projects
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+      **🔧 [Business Communication Workflow Automation](https://github.com/Kitinport1/Business-Communication-Workflow-Automation)**
+      A workflow automation platform (React + Firebase) for multi-channel business communication — dashboards, automations, and SEO monitoring. Prototyped with AI-accelerated development and refined into a structured architecture (Auth, Firestore, Storage, CI/CD via GitHub Actions).
 
-## Learn More
+      **🏎️ [Lamborghini Garage App](https://github.com/Kitinport1/lamborghini-app-react-native-api)** — React Native + Expo
+      A mobile app cataloguing car models via live API integration — one of my first React Native builds, focused on state management, navigation, and API data handling.
 
-To learn more about Next.js, take a look at the following resources:
+      **📦 [Pedidos API](https://github.com/Kitinport1/pedidos-api)** — Node.js, Express, MongoDB
+      A RESTful order-management API built for a technical assessment, including data transformation/mapping logic, validation, and full CRUD. AI-accelerated scaffolding, with business logic and documentation refined manually.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+      **📚 [Readfy App](https://github.com/Kitinport1/readfy-app)** — collaborative project
+      A book-tracking app built in pair collaboration. I led the UI/UX design and layout, and implemented the dark/light/reading-mode theming; my collaborator adapted the backend integration.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+      ---
 
-## Deploy on Vercel
+      ### 🌍 Currently
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+      Open to remote **Product / Data Analytics** roles across the **US and Europe**, open to relocation and visa sponsorship.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+      📍 São Paulo, Brazil · 💼 [linkedin.com/in/lauanelima](https://www.linkedin.com/in/lauanelima) · 🌐 Portfolio — rebuilding, link coming soon
